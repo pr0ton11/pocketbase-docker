@@ -37,6 +37,7 @@ jobs:
             return latest.tag_name.replace('v','')
 
       - name: Get latest package version
+        continue-on-error: true
         id: package
         uses: actions/github-script@v6
         env:
