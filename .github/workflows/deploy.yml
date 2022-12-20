@@ -89,7 +89,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/muchobien/pocketbase
+            ghcr.io/pr0ton11/pocketbase
           tags: |
             type=semver,pattern={{version}},value=${{ steps.version.outputs.value }}
             type=semver,pattern={{major}}.{{minor}},value=${{ steps.version.outputs.value }}
