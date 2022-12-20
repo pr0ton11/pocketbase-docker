@@ -47,7 +47,7 @@ jobs:
           result-encoding: string
           script: |
             const {PACKAGE_NAME,PACKAGE_TYPE} = process.env;
-            const {data: packages} = await github.rest.packages.getAllPackageVersionsForPackageOwnedByOrg({
+            const {data: packages} = await github.rest.packages.getAllPackageVersionsForPackageOwnedByUser({
               org: context.repo.owner,
               package_type: PACKAGE_TYPE,
               package_name: PACKAGE_NAME,
