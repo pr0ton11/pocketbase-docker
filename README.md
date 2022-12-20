@@ -18,7 +18,7 @@
 
 ## Supported Architectures
 
-Simply pulling `ghcr.io/muchobien/pocketbase:latest` should retrieve the correct image for your arch.
+Simply pulling `ghcr.io/pr0ton11/pocketbase:latest` should retrieve the correct image for your arch.
 
 The architectures supported by this image are:
 
@@ -54,14 +54,11 @@ Here are some example snippets to help you get started creating a container.
 version: "3.7"
 services:
   pocketbase:
-    image: ghcr.io/muchobien/pocketbase:latest
+    image: ghcr.io/pr0ton11/pocketbase:latest
     container_name: pocketbase
     restart: unless-stopped
-    command:
-      - --encryptionEnv #optional
-      - ENCRYPTION #optional
     environment:
-      ENCRYPTION: example #optional
+      PB_ENCRYPTION_KEY: example #optional
     ports:
       - "8090:8090"
     volumes:
@@ -75,12 +72,11 @@ services:
 docker run -d \
   --name=pocketbase \
   -p 8090:8090 \
-  -e ENCRYPTION=example `#optional` \
+  -e PB_ENCRYPTION_KEY=example `#optional` \
   -v /path/to/data:/pb_data \
   -v /path/to/public:/pb_public `#optional` \
   --restart unless-stopped \
-  ghcr.io/muchobien/pocketbase:latest \
-  --encryptionEnv ENCRYPTION `#optional`
+  ghcr.io/pr0ton11/pocketbase:latest
 ```
 
 ## Related Repositories
