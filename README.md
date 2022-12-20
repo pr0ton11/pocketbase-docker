@@ -58,12 +58,12 @@ services:
     container_name: pocketbase
     restart: unless-stopped
     environment:
-      PB_ENCRYPTION_KEY: example #optional
+      PB_ENCRYPTION_KEY: example # please replace this value in production
     ports:
       - "8090:8090"
     volumes:
-      - /path/to/data:/pb_data
-      - /path/to/public:/pb_public #optional
+      - /path/to/data:/data
+      - /path/to/public:/public # optional
 ```
 
 ### docker cli ([click here for more info](https://docs.docker.com/engine/reference/commandline/cli/))
@@ -72,9 +72,9 @@ services:
 docker run -d \
   --name=pocketbase \
   -p 8090:8090 \
-  -e PB_ENCRYPTION_KEY=example `#optional` \
-  -v /path/to/data:/pb_data \
-  -v /path/to/public:/pb_public `#optional` \
+  -e PB_ENCRYPTION_KEY=example `# please replace this value in production` \
+  -v /path/to/data:/data \
+  -v /path/to/public:/public `# optional` \
   --restart unless-stopped \
   ghcr.io/pr0ton11/pocketbase:latest
 ```
