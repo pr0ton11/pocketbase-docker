@@ -1,4 +1,4 @@
-FROM alpine:3 as downloader
+FROM alpine:latest as download
 
 ARG TARGETOS
 ARG TARGETARCH
@@ -11,10 +11,12 @@ RUN wget https://github.com/pocketbase/pocketbase/releases/download/v${VERSION}/
     && unzip pocketbase_${VERSION}_${BUILDX_ARCH}.zip \
     && chmod +x /pocketbase
 
-FROM alpine:3
+FROM alpine:latest
 RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+
+ENV LISTEN_HTTP "0.0.0.0:8090"
 
 EXPOSE 8090
 
-COPY --from=downloader /pocketbase /usr/local/bin/pocketbase
-ENTRYPOINT ["/usr/local/bin/pocketbase", "serve", "--http=0.0.0.0:8090", "--dir=/pb_data", "--publicDir=/pb_public"]
+COPY --from=download /pocketbase /usr/local/bin/pocketbase
+ENTRYPOINT ["/usr/local/bin/pocketbase", "serve", "--http=$LISTEN_HTTP", "--dir=/data", "--publicDir=/public"]
