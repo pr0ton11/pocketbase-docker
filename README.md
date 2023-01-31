@@ -13,7 +13,7 @@
     <img alt="Supported docker archs" src="https://img.shields.io/badge/platform-amd64%20%7C%20arm64%20%7C%20armv7-brightgreen?style=flat-square&logo=linux&logoColor=%23fff">
   </a>
   <a aria-label="Latest docker build" href="https://github.com/pr0ton11/pocketbase-docker/pkgs/container/pocketbase" target="_blank">
-    <img alt="Latest docker build" src="https://github.com/pr0ton11/pocketbase-docker/actions/workflows/deploy.yml/badge.svg">
+    <img alt="Latest docker build" src="https://github.com/pr0ton11/pocketbase-docker/actions/workflows/build.yml/badge.svg">
   </a>
 </p>
 
