@@ -61,7 +61,7 @@ services:
     container_name: pocketbase
     restart: unless-stopped
     environment:
-      PB_ENCRYPTION_KEY: example # please replace this value in production
+      PB_ENCRYPTION_KEY: example # please replace this value with 32 random characters in production
     ports:
       - "8090:8090"
     volumes:
