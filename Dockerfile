@@ -19,5 +19,10 @@ ENV PB_ENCRYPTION_KEY "replaceme"  # Overwritten in deployment
 
 EXPOSE 8090
 
+VOLUME "/data"
+VOLUME "/public"
+VOLUME "/hooks"
+VOLUME "/migrations"
+
 COPY --from=download /pocketbase /usr/local/bin/pocketbase
-ENTRYPOINT pocketbase serve --http="${LISTEN_HTTP}" --dir="/data" --publicDir="/public" --encryptionEnv="PB_ENCRYPTION_KEY"
+ENTRYPOINT pocketbase serve --http="${LISTEN_HTTP}" --dir="/data" --publicDir="/public" --hooksDir="/hooks" --migrationsDir="/migrations" --encryptionEnv="PB_ENCRYPTION_KEY"

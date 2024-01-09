@@ -67,6 +67,8 @@ services:
     volumes:
       - /path/to/data:/data
       - /path/to/public:/public # optional
+      - /path/to/hooks:/hooks # optional
+      - /path/to/migrations:/migrations # optional
 ```
 
 ### docker cli ([click here for more info](https://docs.docker.com/engine/reference/commandline/cli/))
@@ -78,6 +80,8 @@ docker run -d \
   -e PB_ENCRYPTION_KEY=example `# please replace this value in production` \
   -v /path/to/data:/data \
   -v /path/to/public:/public `# optional` \
+  -v /path/to/hooks:/hooks `# optional` \
+  -v /path/to/migrations:/migrations `# optional` \
   --restart unless-stopped \
   ghcr.io/pr0ton11/pocketbase:latest
 ```
