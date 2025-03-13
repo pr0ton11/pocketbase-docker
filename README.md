@@ -19,6 +19,10 @@
 
 ---
 
+## Latest Version
+
+This image is automatically updated to the latest version of pocketbase whenever it releases.
+
 ## Supported Architectures
 
 Simply pulling `ghcr.io/pr0ton11/pocketbase:latest` should retrieve the correct image for your arch.
